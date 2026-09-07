@@ -115,8 +115,15 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://lifestyle-frontend-qdvi.onrender.com",  # رابط الفرونت إند النهائي على Render
+    "http://localhost:5173",                         # للتطوير المحلي مع Vite
+    "http://localhost:3000",                         # للتطوير المحلي مع React Standalone
+    "http://127.0.0.1:5173",                         # خيار احتياطي للـ Localhost
+]
 
+# 3. السماح بتداول بيانات الاعتماد (Cookies / Auth Headers / CSRF Tokens)
+CORS_ALLOW_CREDENTIALS = True
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
